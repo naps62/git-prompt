@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path(File.join("..", "..", "lib"), __FILE__)
+
+require "git_prompt"
+require "pry"
+
+config = GitPrompt::Config.new
+repo = GitPrompt::Repo.new(config: config)
+prs = GitPrompt::PullRequests.new(config: config, repo: repo)
+
+binding.pry
